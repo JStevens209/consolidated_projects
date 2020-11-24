@@ -1,0 +1,7 @@
+absl-py             >= 0.8.0
+Flask               >= 1.1.2 
+numpy               >= 1.17.2
+pandas              >= 0.25.3
+
+#git+git://github.com:obolary/td-ameritrade-python-api.git@develop
+#git+git://github.com:obolary/option-pricing-python.git@develop

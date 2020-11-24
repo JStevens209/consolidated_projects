@@ -1,0 +1,10 @@
+.DS_Store
+.vscode
+
+context.py
+credentials*
+
+*.egg-info
+__pycache__
+
+test.py

@@ -1,0 +1,12 @@
+.DS_Store
+.vscode
+.tmp
+.ipynb_checkpoints
+__pycache__
+
+*.egg-info
+*.csv
+*.hold
+
+test*
+context.py
