@@ -135,7 +135,7 @@ int main() {
 
 		writeMessage(21,1, "YOU WON!!!");
 
-	} else if (compSunk == NUMTOSINK) {	//I was bored.
+	} else if (compSunk == NUMTOSINK) {
 		writeMessage(21,1, "Wow, you actually lost that, I'm impressed.");
 
 		pauseForEnter();
@@ -156,16 +156,13 @@ int main() {
    	}
 
 	pauseForEnter();
-
-
-
 	return 0;
+
 }// Author:Joshua Stevens
 // Date:
 // Purpose:Battleship Game
 
 #include "battleship.h"
-
 
 int main() {
 
@@ -194,24 +191,20 @@ int main() {
 	int compResult;
 	int sunk = 0;
 	int compSunk = 0;
-	// Welcome the player to the game
 
-	welcome();	//You're welcome
+	// Welcome the player to the game
+	welcome();
 
 	// Initialize the game boards
-
 	initializeBoard(humanBoard);
 	initializeBoard(compBoard);
 
-	// Play the game until one player has sunk the other's ships
 	while(!done) {
 
 		// Clear the screen to prepare show the game situation before the moves
-
 		clearTheScreen();
 
 		// Display the game board situation
-
 		displayBoard(1,1, HUMAN, humanBoard);
 		displayBoard(1,45, COMPUTER, compBoard);
 
@@ -228,7 +221,7 @@ int main() {
 				move[i] = toupper(move[i]);
 			}
 
-			testMove = checkMove(move, compBoard, row, col);//tests for valid move
+			testMove = checkMove(move, compBoard, row, col);
 			if(testMove == 0)
 			{
 				humValid = true;
@@ -237,6 +230,7 @@ int main() {
 				writeMessage(18,1,"Invalid move!");
 			}
 		}
+
 		// Get and validate the computer's move
 		compValid = false;
 
@@ -297,7 +291,7 @@ int main() {
 
 		writeMessage(21,1, "YOU WON!!!");
 
-	} else if (compSunk == NUMTOSINK) {	//I was bored.
+	} else if (compSunk == NUMTOSINK) {
 		writeMessage(21,1, "Wow, you actually lost that, I'm impressed.");
 
 		pauseForEnter();
