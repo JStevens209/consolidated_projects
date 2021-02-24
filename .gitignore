@@ -1,3 +1,9 @@
 .DS_Store
 .vscode
 a.out
+/java/hello_world/target/
+/java/hello-world/target/
+/java/HelloWorld/target/
+/java/JUnit-tutorial/target/
+/java/ContactEditor/target/
+/java/Project2/target/
