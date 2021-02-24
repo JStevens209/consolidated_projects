@@ -1,0 +1,1 @@
+This Repo is a collection of all my individual projects that I have worked on over the course of 2 years. Some of my work cannot be include here dude to it belonging to a company. Most of the projects here are homework. Currently I am working on the c++_files/playground/acsii_engine/ project. 
