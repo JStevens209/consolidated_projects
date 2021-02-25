@@ -7,13 +7,13 @@ public class RPNCalculator {
     public static void main(String[] args) {
     }
 
-    private static double Compute ( String input ) {
+    public static double Compute ( String input ) {
         
         // Declares the list of possible operations the function can handle.
         final String OPERATIONS = "+-*/";
 
         Scanner scan = new Scanner( input );
-        Stack stack = new Stack();
+        java.util.Stack stack = new java.util.Stack();
 
         double lhs;
         double rhs;
@@ -29,17 +29,17 @@ public class RPNCalculator {
                 
                 // Error Checking for unexpected characters. IE "hi" of "+-"
                 if( ( !OPERATIONS.contains( operation ) ) && ( operation.length() == 1 ) ) {
-                    throw InvalidRPNString( "ERROR: String Contains Unparsable Character: \"" + otherTemp + "\"");
+                    throw new InvalidRPNString( "ERROR: String Contains Unparsable Character: \"" + operation + "\"");
                 } 
                 // Error Checking for a string that does not give enough numbers to do an operation on.
                 if( stack.size() < 2 ) {
-                    throw InvalidRPNString( "ERROR: String Is Unsolvable At Operation: \"" + operation + "\"" );  
+                    throw new InvalidRPNString( "ERROR: String Is Unsolvable At Operation: \"" + operation + "\"" );  
                 }
                 
                 // The Right Hand Side of the equation will always have been put in last
                 // so must be pulled out first according to LIFO. Then the Left Hand Side can be pulled.
-                rhs = stack.pop();
-                lhs = stack.pop();
+                rhs = (Double) stack.pop();
+                lhs = (Double) stack.pop();
                 
                 // Perform Requested Operation
                 if( operation == "+" ) {
@@ -59,16 +59,16 @@ public class RPNCalculator {
                 }
                 // Error Handling for division by zero.
                 else {
-                    throw InvalidRPNString( "ERROR: Divide By Zero: \"" + lhs + " / 0\"" );
+                    throw new InvalidRPNString( "ERROR: Divide By Zero: \"" + lhs + " / 0\"" );
                 }
             }
         }
 
         if( stack.size() > 1 ) {
-            throw InvalidRPNString( "ERROR: String Is Unsolvable, Ran Out Of Operations" );
+            throw new InvalidRPNString( "ERROR: String Is Unsolvable, Ran Out Of Operations" );
         }
 
-        return stack.pop();
+        return (Double) stack.pop();
     }
 
     public static class InvalidRPNString extends RuntimeException {
