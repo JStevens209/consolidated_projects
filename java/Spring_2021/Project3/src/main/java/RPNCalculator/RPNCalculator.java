@@ -1,3 +1,7 @@
+/**
+ * @Author: Joshua Stevens
+ */
+
 package RPNCalculator;
 
 import java.util.Scanner;
@@ -41,25 +45,28 @@ public class RPNCalculator {
                 rhs = (Double) stack.pop();
                 lhs = (Double) stack.pop();
                 
+                double hold;
+                
                 // Perform Requested Operation
-                if( operation == "+" ) {
+                if( "+".equals( operation ) ) {
                     stack.push( lhs + rhs );
                 }
 
-                if( operation == "-" ) {
-                    stack.push( lhs - rhs );
+                else if( "-".equals( operation ) ) {
+                    stack.push( lhs - rhs );                    
                 }
 
-                if( operation == "*" ) {
+                else if( "*".equals( operation ) ) {
                     stack.push( lhs * rhs );
                 }
 
-                if( ( operation == "/" ) && ( rhs != 0 ) ) {
-                    stack.push( lhs / rhs );
+                else if( ( "/".equals( operation ) ) && ( rhs != 0 ) ) {
+                    stack.push( lhs / rhs );                    
                 }
                 // Error Handling for division by zero.
                 else {
-                    throw new InvalidRPNString( "ERROR: Divide By Zero: \"" + lhs + " / 0\"" );
+                    throw new InvalidRPNString( "ERROR: Divide By Zero: \"" + lhs + " / " + rhs + "\"" );
+                    
                 }
             }
         }
