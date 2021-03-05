@@ -24,7 +24,7 @@ int main() {
   int totalGames = 1000;
 
    // Welcome the player to the game
-   welcome(false);
+   welcome( false );
 
    // Initialize the game boards
    initializeBoard(dumbComputerBoard);

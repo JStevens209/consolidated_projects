@@ -9,6 +9,8 @@ using namespace std;
 
 // All equations with multiple inputs assume vectors are the same shape: (3,).
 // I only needed it to handle vectors of shape (3,), so I didn't bother making general solutions.
+// Most of the functions CAN handle general solutions, except for cross_product,
+// for which I did not want to find a general solution for solving determinants of arbitrary size.
 
 // Calculates the dot product of 2 vectors
 double dot_product( vector<double> left, vector<double> right ) {

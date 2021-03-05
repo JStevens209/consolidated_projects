@@ -16,13 +16,11 @@ int main ()
 		cin >> intYear;
 		cout << "The year " << intYear << "AD is the Roman numeral ";
 
-
 		int thousands = intYear / 1000;
 		for (int i = thousands; i >= 1; --i)	//thousands place
 		{
 			cout << "M";
 		}
-
 
 		intYear = intYear - (thousands * 1000);
 		if (intYear >= 900)		//five hundreds
