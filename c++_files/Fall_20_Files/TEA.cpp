@@ -1,3 +1,10 @@
+// Project made in partnership with Jacob Pennel
+// 90% of the code is my own work for various reasons.
+// Final debugging and testing was done with very little time left
+// there are some things that still need to be fixed.
+/*
+    Implementation of TEA encryption algorithm.
+*/
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -8,7 +15,6 @@
 #include <stdint.h>
 
 using namespace std;
-
 
 string strr;
 
@@ -63,7 +69,6 @@ void readStringFile( ifstream &fin, uint32_t &left, uint32_t &right){
         }
     }
 
-
     //Converts the ACSII characters to binary, then to a string
     string leftBinaryVal;
     string rightBinaryVal;
@@ -103,7 +108,6 @@ vector<uint32_t> getKeyArray( ifstream &fin, bool isIV = false ) {
 }
 
 
-
 // OUTPUT FUNCTIONS //
 void outputHexText( const uint32_t left, const uint32_t right ){
     ofstream fout;
@@ -134,7 +138,6 @@ void outputStringText( const uint32_t left, const uint32_t right ){
     return;
 }
 
-
 /*
  Description: encrypts the left and right variable with the TEA algorithm
 
@@ -143,11 +146,13 @@ void outputStringText( const uint32_t left, const uint32_t right ){
  @param r plaintext right --> ciphertext right , passed by reference
  */
 vector<uint32_t> teaEncrypt(const vector<uint32_t> KEY, uint32_t l, uint32_t r) {
+
     vector<uint32_t> text;
     uint32_t left = l;
     uint32_t right = r;
     uint32_t const DELTA = 0x9e3779b9;
     uint32_t sum = 0;
+
     for (int i = 0; i < 32; i++) {
         sum += DELTA;
         left  = left  + (((right << 4) + KEY[0]) ^ (right + sum) ^ ((right >> 5) + KEY[1]));
@@ -167,11 +172,13 @@ vector<uint32_t> teaEncrypt(const vector<uint32_t> KEY, uint32_t l, uint32_t r) 
  @param r ciphertext right --> plaintext right
  */
 vector<uint32_t> teaDecrypt(const vector<uint32_t> KEY, uint32_t l, uint32_t r) {
+
     vector<uint32_t> text;
     uint32_t left = l;
     uint32_t right = r;
     int const DELTA = 0x9e3779b9;
     int sum = DELTA << 5;
+
     for (int i = 0; i < 32; i++) {
         right = right - (((left  << 4) + KEY[2]) ^ (left  + sum) ^ ((left  >> 5) + KEY[3]));
         left  = left  - (((right << 4) + KEY[0]) ^ (right + sum) ^ ((right >> 5) + KEY[1]));
@@ -285,7 +292,6 @@ vector<vector<uint32_t> > EBCDecrypt( const vector<uint32_t> KEY, vector<vector<
 
     return Plaintext;
 }
-
 
 vector<vector<uint32_t> > EBCEncrypt( const vector<uint32_t> KEY, vector<vector<uint32_t> > ciphertext ) {
     vector<vector<uint32_t> > Plaintext;
@@ -419,13 +425,4 @@ int main( int argc, char **argv ) {
     cout << strr;
 
 }
-
-//CMD Line ARGS, prob gonna forget to delete this
-// "/Users/joshua/Documents/mystery1_ECB-H.p"  "/Users/joshua/Documents/teacher-H.key" "/Users/joshua/Documents/teacher-H.iv"
-// "/Users/joshua/Documents/mystery2_ECB-S.crypt"  "/Users/joshua/Documents/teacher-H.key" "/Users/joshua/Documents/teacher-H.iv"
-// "/Users/joshua/Documents/mystery3_CBC-S.plain" "/Users/joshua/Documents/teacher-H.key" "/Users/joshua/Documents/teacher-H.iv"
-// "/Users/joshua/Documents/mystery4_CTR-S.crypt" "/Users/joshua/Documents/teacher-H.key" "/Users/joshua/Documents/teacher-H.iv"
-
-
-// /Users/joshua/Documents/practice_ECB-S.plain "/Users/joshua/Documents/theme-H.key" "/Users/joshua/Documents/theme-H.iv"   
 

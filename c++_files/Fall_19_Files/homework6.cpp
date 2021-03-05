@@ -1,3 +1,10 @@
+// Author: Joshua Stevens
+// Professor: Dr. Perry
+/* 
+  Purpose: This program takes an input string, removes the repeated characters 
+  using a function, and then outputs the string back to the command line
+*/
+
 #include <iostream>
 #include <cstring>
 #include <cctype>
@@ -9,55 +16,63 @@ void delete_repeats(char array[], int size)
 {
   char noRepeats[512]= {};
   char arrayTest = array[0];
+
   bool isRepeat = false;
+  
   int numberRepeats = 0;
 
-  for(int i = 0; i < size; i ++)
-  {
-    isRepeat = false; //sets this variable to false for every new char that is tested
-    for(int j = 0; j < size; j++)
-    {
-      if(noRepeats[j] == array[i]) //Checks if there is any character in noRepeats that is the same as the character at array[i]
-      {
+  for( int i = 0; i < size; i++ ) {
+    // Set this variable to false for every new char that is tested
+    isRepeat = false; 
+
+    for( int j = 0; j < size; j++ ) {
+
+      // Check if there is any character in noRepeats that is the same as the character at array[i]
+      if( noRepeats[j] == array[i] ) {
+
+        // Count how many null chars there would be in the array if this character wasnt printed
         isRepeat = true;
-        numberRepeats ++; //Counts how many null chars there would be in the array if this character wasnt printed
+        numberRepeats ++; 
       }
     }
 
-    if(isRepeat == false)
-    {
-      noRepeats[i - numberRepeats] = array[i]; //Sets array[i] to noRepeats[i - the number of deleted/not printed characters]
+    if( isRepeat == false ) {
+
+      // Set array[i] to noRepeats[i - the number of deleted/not printed characters].
+      noRepeats[i - numberRepeats] = array[i];
     }
-
   }
-  cout << "\"" << array << "\"" << " Without any repeats is: " << endl << noRepeats << endl; //prints out original without repeats
 
-
+  // Print out original without repeats.
+  cout << "\"" << array << "\"" << " Without any repeats is: " << endl << noRepeats << endl; 
 }
 int main()
 {
-  //Variable Declarations:
-  const int SIZE = 512;
-  string input;
-  int length;
   char cstring[SIZE] ={};
+
+  const int SIZE = 512;
+  int length;
+  
+  string input;
   string cont = "yes";
+  
+  while(cont == "yes") {
+    cout << "Please enter a new string: " << endl;
 
-while(cont == "yes")
-  {
-      cout << "Please enter a new string: " << endl;
+    // This is included so that the getline doesnt just read a /n 
+    // from the buffer and skip getting an input.
+    cin.ignore();
+    getline(cin, input);
 
-      cin.ignore(); //This is included so that the getline doesnt just read a /n from the buffer and skip getting an input.
-      getline(cin, input);
+    // Check if Input fits within the max size of the cstring.
+    if( input.length() < SIZE ) {
 
-    if(input.length() < SIZE) //Is the input an acceptable size?
-    {
-        strcpy(cstring, input.c_str());
+        strcpy( cstring, input.c_str() );
         length = input.length();
-        delete_repeats(cstring, length);
+
+        delete_repeats( cstring, length );
     }
-    else
-    {
+    else {
       cout << "ERROR: String length too long, please enter a shorter string." << endl;
       return 1;
     }

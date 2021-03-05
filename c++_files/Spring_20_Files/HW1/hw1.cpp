@@ -25,6 +25,7 @@ void reverse(char* front, char* rear) {
 
 int main(int argc, char* argv[]){
 
+	// Submitted via zybooks, this is necessary.
 	return zymain(argc, argv);
 	
 }

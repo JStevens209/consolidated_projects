@@ -40,13 +40,10 @@ int main() {
     for( int i = 0; i < COLS; i++ ) {
         for( int k = 0; k < LINES; k++ ) {
 
-            camera_plane_x = i - camera_origin_x;
+            camera_plane_x = i + camera_origin_x;
             camera_plane_y = k - camera_origin_y;
 
-            if( camera_origin_x > 0 ) {
-                mvaddch( camera_plane_y, camera_plane_x, '-' );
-            }
-
+                
         }
     } 
 

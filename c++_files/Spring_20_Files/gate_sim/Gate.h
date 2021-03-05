@@ -12,15 +12,13 @@ class Wire;
 
 class Gate {
 public:
-  //constructor
+
   Gate(Wire *input1 = NULL, Wire *input2 = NULL, Wire *newDrive = NULL, int gateDelay = -1, string gateType = "");
-  //destructor
   ~Gate();
 
   void setInput1(Wire *input);
   void setInput2(Wire *input);
 
-//I have all the getters to use with Wire.cpp, there was most likely a better way to do this that I forgot
   Wire *getDrive() const;
   Wire *getInput1() const;
   Wire *getInput2() const;

@@ -1,3 +1,6 @@
+// Very beginning stages of an ambitious project I had when first starting out. 
+// Abandoned.
+
 #include <iostream>
 #include <cstdlib>
 

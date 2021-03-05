@@ -6,11 +6,11 @@ using namespace std;
 
 int main() {
 
-Gate andGate;
-Wire::Wire testWire;
+    Gate andGate;
+    Wire::Wire testWire;
 
 
 
 
-return 0;
+    return 0;
 }

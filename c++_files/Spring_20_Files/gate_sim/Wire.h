@@ -11,10 +11,8 @@ using namespace std;
 
 class Wire {
 public:
-//constructor
 
   Wire(string wireName = "", vector<Gate *> wireGate = {NULL}, int value = -1);
-//destructor
   ~Wire();
 
 //Getters
@@ -30,6 +28,7 @@ public:
   Wire& operator=(const Wire& rhs);
 
 private:
+
   string name;
   vector<Gate *> gates;
   int currValue;

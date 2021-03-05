@@ -1,3 +1,6 @@
+// Have one of these files in almost every directory.
+// Its a place where I throw snippets of code to quickly test logic/concepts.
+
 #include <iostream>
 #include <fstream>
 

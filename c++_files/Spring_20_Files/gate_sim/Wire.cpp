@@ -15,7 +15,8 @@ Wire::Wire(string wireName, vector<Gate *> wireGates, int value) {
     //Sets the gates array to the wireGates array without aliasing
     for(int i = 1; i < wireGates.size(); i++) {
       if(wireGates.at(i) != NULL){
-        gates.at(i) = new Gate(wireGates.at(i)->getInput1(), wireGates.at(i)->getInput2(), wireGates.at(i)->getDrive(), wireGates.at(i)->getDelay(), wireGates.at(i)->getType());
+        gates.at(i) = new Gate( wireGates.at(i)->getInput1(), wireGates.at(i)->getInput2(), 
+              wireGates.at(i)->getDrive(), wireGates.at(i)->getDelay(), wireGates.at(i)->getType() );
         //*gates.at(i) = *wireGates.at(i);
       }
     }
@@ -41,7 +42,6 @@ vector<Gate*> Wire::getGates() const {
 int Wire:: getCurrValue() const {
   return currValue;
 }
-
 
 //Mutators
 void Wire::addGate(Gate *newGate) {

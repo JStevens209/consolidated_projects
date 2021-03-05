@@ -51,8 +51,9 @@ bool bufferHasItems(){
 
 //waits for buffer access, add item, release buffer, exit
 void producer( vector<char> &buffer, int size ){
-    //This is just my way of getting a random set of chars
-    //Have a string of all the chars, randomly pick a number between 0-25 to access the string at
+
+    // This is just my way of getting a random set of chars
+    // Have a string of all the chars, randomly pick a number between 0-25 to access the string at
     const string charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     srand( time(0) );
 
@@ -85,7 +86,7 @@ void producer( vector<char> &buffer, int size ){
     return;
 }
 
-//waits for buffer access, take tiem, release buffer, exit
+//waits for buffer access, take item, release buffer, exit
 void consumer( vector<char> &buffer, int size ){
 
     //While the producer is still producing OR there are still items in the buffer...
@@ -118,14 +119,14 @@ void consumer( vector<char> &buffer, int size ){
     return;
 }
 
-int main(){
+int main() {
 
-    //I took "Use a char array of size N as the shared buffer."
-    //to mean that it must handle a char array of size N
+    // I took "Use a char array of size N as the shared buffer."
+    // to mean that it must handle a char array of size N
     int size;
     cout << "Enter number of items: ";
     cin >> size;
-    cout << endl << "Procucing and Consuming..." << endl;
+    cout << endl << "Producing and Consuming..." << endl;
 
     vector<thread> threads;
     vector<char> buffer;

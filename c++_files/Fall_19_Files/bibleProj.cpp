@@ -1,13 +1,16 @@
+// This project offers a good comparison between my early work, and my more recent work
+// the original written for school was one of my first projects, and can be found commented out below.
+// The new code was written by me for fun after a year and a half of programming.
+
 #include <iostream>
 #include <fstream>
 #include <cctype>
 using namespace std;
 
-//We were supposed to inlude a function and addend the verse to a file, so I did both in one
-void StoreVerses(string verse);
+//We were supposed to inlude a function and append the verse to a file, so I did both in one
+void StoreVerses( string verse );
 
-int main ()
-{
+int main() {
 	// References the string.find function which returns -1 if substr not found
 	const int DOES_NOT_EXIST = -1;
 
@@ -74,9 +77,17 @@ int main ()
 		cout << "ERROR: " << e << " not found." << endl;
 		return 1;
 	}
-
-
 }
+
+void StoreVerses(string verse) {
+
+	ofstream out;
+	out.open( "Verses.txt" );
+	out << verse << endl;
+
+	out.close();
+}
+// I recently went back and rewrote this project for fun, the commented code below is the old code.
 /*
 
 	string book;
@@ -130,14 +141,5 @@ int main ()
 	in.close();
 	return 0;
 
-}
-
-void StoreVerses(string verse)
-{
-	ofstream out;
-	out.open("Verses.txt");
-	out << verse << endl;
-
-	out.close();
 }
 */

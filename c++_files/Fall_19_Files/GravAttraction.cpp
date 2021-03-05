@@ -3,45 +3,40 @@
 
 using namespace std;
 
-double CalcGravAttraction(double m1, double m2, double d);
+double CalcGravAttraction( double mass_1, double mass_2, double distance );
 
-int main ()
-{
+int main() {
 	char notDone = 'y';
 
-	while( notDone == 'y')
-	{	double m1; //mass one
-		double m2; //mass two
-		double d;  //distance
+	while( notDone == 'y') {
+
+		double mass_1; 
+		double mass_2;
+		double distance;
 
 		cout << "Enter the mass (g) of the first object: ";
-		cin >> m1;
+		cin >> mass_1;
 
 		cout << "Enter the mass (g) of the second object: ";
-		cin >> m2;
+		cin >> mass_2;
 
 		cout << "Enter the distance (cm) between the two objects: ";
-		cin >> d;
+		cin >> distance;
 
-		cout << "The gravitational force is " << CalcGravAttraction(m1, m2, d) << "dynes." << endl; 
+		cout << "The gravitational force is " << CalcGravAttraction(mass_1, mass_2, distance) << "dynes." << endl; 
 				
 		cout << "Would you like to repeat this program?";
 		cin >> notDone;
 	}
 
-
 	return 0;
 }
 
-double CalcGravAttraction(double m1, double m2, double d)
-{
+double CalcGravAttraction( double mass_1, double mass_2, double distance ) {
+
 	//gravitational constant
 	const double G = 6.673e-8; 
 
 	//Equation for gravitational force
-	double gForce = ( G * m1 * m2 ) / ( pow( d, 2.0 ) ); 
-
-	return gForce;
-}
-
+	return ( G * mass_1 * mass_2 ) / ( pow( distance, 2.0 ));
 }

@@ -33,11 +33,9 @@ int main() {
 	int sunk = 0;
 	int compSunk = 0;
 	// Welcome the player to the game
-
-	welcome();	//You're welcome
+	welcome();
 
 	// Initialize the game boards
-
 	initializeBoard(humanBoard);
 	initializeBoard(compBoard);
 
@@ -45,11 +43,9 @@ int main() {
 	while(!done) {
 
 		// Clear the screen to prepare show the game situation before the moves
-
 		clearTheScreen();
 
 		// Display the game board situation
-
 		displayBoard(1,1, HUMAN, humanBoard);
 		displayBoard(1,45, COMPUTER, compBoard);
 
@@ -453,7 +449,7 @@ int main() {
 
 		writeMessage(21,1, "YOU WON!!!");
 
-	} else if (compSunk == NUMTOSINK) {	//I was bored.
+	} else if (compSunk == NUMTOSINK) {	
 		writeMessage(21,1, "Wow, you actually lost that, I'm impressed.");
 
 		pauseForEnter();

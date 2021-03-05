@@ -34,7 +34,7 @@ int main(  int argc, char **argv ) {
 
     srand( ( unsigned int )time( 0 ) );
 
-    if ( argc < 3 || argc > 4 ){
+    if ( argc < 3 || argc > 4 ) {
         std::cerr << "Usage: " << argv[0]
                   << " <reference string size> <number of page frames> "
                   << "[reference string filename]"
@@ -66,15 +66,14 @@ int main(  int argc, char **argv ) {
         }
         in.close();
     }
-
     else {
         for ( int i = 0; i < count; i++ ){
             referenceString.push_back( rand() % MAX_PAGE_NUMBER );
         }
     }
     
-    ReplacementAlgorithm * lru = new LRU( numPageFrames );
-    ReplacementAlgorithm * fifo = new FIFO( numPageFrames );
+    ReplacementAlgorithm *lru = new LRU( numPageFrames );
+    ReplacementAlgorithm *fifo = new FIFO( numPageFrames );
 
     for ( int i : referenceString ) {
         lru->insert( i );

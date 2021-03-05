@@ -15,6 +15,7 @@ FIFO::FIFO( int numPageFrames ) : ReplacementAlgorithm( numPageFrames ) {
 }
 
 void FIFO::insert( int pageNumber ) {
+    
     // Implement FIFO page replacement algorithm
     // Increment pageFaultCount if a page fault occurs
     auto emptyFrame = std::find( begin( pageMemory ), end( pageMemory ), -1 );
