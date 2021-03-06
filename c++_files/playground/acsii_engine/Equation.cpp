@@ -1,5 +1,6 @@
 #include "Equation.h"
 #include <sstream>
+#include <regex>
 
 Equation::Equation( std::string equation ) {
     
@@ -13,25 +14,17 @@ Equation::Equation( std::string equation ) {
 
 void Equation::parseEquation( std::string equation ) {
 
-    const string VALID_OPERATIONS = "+ - * / ^ % ( ) [ ] { }";
-    const string VALID_VARIABLES = "x y z";
-
-    sstream ss( equation );
-
-    while( !ss.eof() ) {
-        char character = ss.get(1);
-
-        if( VALID_OPERATIONS.find( character ) != string::npos ) {
-            operations.push( character );
-        }
-        else if( VALID_VARIABLES.find( character ) != string::npos ) {
-            variables.push( character );
-        }
-        else {
-            throw InputException( "Character: " + character + " not recognized." );
-        }
+    // Matches the characters +-*/^%()[]{}.
+    if( regex_match( equation, std::regex( "[\\+\\-\\*\\/\\^\\%\\(\\)\\[\\]\\{\\}]" ))) {
+        operations.push( character );
     }
-
+    // Matches the characters xyz, then any number between 0 and 9.
+    if( std::regex_match( equation, std::regex( "[x-z0-9]+" ))) {
+        variables.push( character );
+    }
+    else {
+        throw InputException( "Character: " + character + " not recognized." );
+    }
 
 }
 
