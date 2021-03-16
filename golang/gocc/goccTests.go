@@ -1,0 +1,6 @@
+package gocc;
+
+
+func main() {
+	
+}
