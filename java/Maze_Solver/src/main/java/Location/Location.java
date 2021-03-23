@@ -1,30 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Location;
 
 /**
  *
- * @author joshua
+ * @author Joshua Stevens
+ * @purpose to hold all the necessary data of a maze location.
  */
 public class Location {
 	
 	// Need to be able to view and edit distance directly.
 	public int distance;
 	
-	String type;
+	char type;
 	int[] mazePos;
 	
-	public Location(String wall_type , int origin_distance, int[] position ) {
+	public Location(char wall_type , int origin_distance, int[] position ) {
 		
 		type = wall_type;
 		distance = origin_distance;
 		mazePos = position;
 	}
 	
-	public String getType() {
+	public char getType() {
 		return type;
 	}
 	
