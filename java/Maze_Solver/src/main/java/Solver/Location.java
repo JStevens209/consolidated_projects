@@ -1,4 +1,4 @@
-package Location;
+package Solver;
 
 /**
  *

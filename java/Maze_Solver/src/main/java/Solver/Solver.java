@@ -4,7 +4,7 @@ package Solver;
  * @author joshua
  */
 
-import Location.Location;
+import Solver.Location;
 import java.util.*;
 import ArrayQueue.Exceptions.*;
 import ArrayQueue.ArrayQueue;
